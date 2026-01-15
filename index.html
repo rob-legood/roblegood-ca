@@ -4,216 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rob LeGood | Director of Software Development</title>
-    <style>
-        /* Modern Reset & Base Styles */
-        :root {
-            --bg-primary: #1e293b;
-            --bg-secondary: #334155;
-            --bg-tertiary: #0f172a;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #f59e0b;
-            --accent-hover: #d97706;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--bg-tertiary);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid var(--bg-secondary);
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-logo:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 60px;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: calc(100vh - 60px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
-        }
-
-        .hero-welcome {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .hero-title {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .hero-tagline {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg-tertiary);
-            padding: 14px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Highlights Section */
-        .highlights {
-            padding: 80px 20px;
-            background-color: var(--bg-primary);
-        }
-
-        .highlights-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .highlights h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 50px;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .highlight-card {
-            background: var(--bg-secondary);
-            padding: 35px 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .highlight-card h3 {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .highlight-card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding: 30px 20px;
-            background-color: var(--bg-tertiary);
-            border-top: 1px solid var(--bg-secondary);
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-title {
-                font-size: 1.2rem;
-            }
-
-            .hero-tagline {
-                font-size: 1rem;
-            }
-
-            .highlights {
-                padding: 60px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -225,6 +16,12 @@
     </nav>
 
     <main>
+        <div class="weather-widget" id="weather-widget">
+            <span class="weather-location">Kitchener, ON</span>
+            <span class="weather-condition" id="weather-condition">--</span>
+            <span class="weather-temp" id="weather-temp">--°C</span>
+        </div>
+
         <section class="hero">
             <div class="hero-welcome">Welcome</div>
             <h1>Robert LeGood</h1>
@@ -268,6 +65,53 @@
     <footer>
         &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
     </footer>
+
+    <script>
+        (function() {
+            const weatherCodes = {
+                0: 'Clear',
+                1: 'Mostly Clear',
+                2: 'Partly Cloudy',
+                3: 'Overcast',
+                45: 'Foggy',
+                48: 'Icy Fog',
+                51: 'Light Drizzle',
+                53: 'Drizzle',
+                55: 'Heavy Drizzle',
+                61: 'Light Rain',
+                63: 'Rain',
+                65: 'Heavy Rain',
+                66: 'Freezing Rain',
+                67: 'Heavy Freezing Rain',
+                71: 'Light Snow',
+                73: 'Snow',
+                75: 'Heavy Snow',
+                77: 'Snow Grains',
+                80: 'Light Showers',
+                81: 'Showers',
+                82: 'Heavy Showers',
+                85: 'Light Snow Showers',
+                86: 'Snow Showers',
+                95: 'Thunderstorm',
+                96: 'Thunderstorm w/ Hail',
+                99: 'Thunderstorm w/ Heavy Hail'
+            };
+
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=43.4516&longitude=-80.4925&current_weather=true')
+                .then(response => response.json())
+                .then(data => {
+                    const temp = Math.round(data.current_weather.temperature);
+                    const code = data.current_weather.weathercode;
+                    const condition = weatherCodes[code] || 'Unknown';
+
+                    document.getElementById('weather-temp').textContent = temp + '°C';
+                    document.getElementById('weather-condition').textContent = condition;
+                })
+                .catch(() => {
+                    document.getElementById('weather-condition').textContent = 'Unavailable';
+                });
+        })();
+    </script>
 
 </body>
 </html>
