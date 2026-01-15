@@ -303,6 +303,20 @@ footer {
     border-top: 1px solid var(--bg-secondary);
 }
 
+/* Easter Egg Icon */
+.easter-egg-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+    font-size: 1rem;
+}
+
+.easter-egg-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
 /* Page Intro */
 .page-intro {
     text-align: center;
