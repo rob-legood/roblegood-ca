@@ -26,7 +26,7 @@
             '</div>' +
             '<div class="geocities-guestbook">' +
                 '<span class="geocities-spin">📧</span> ' +
-                '<a href="mailto:rob.legood@gmail.com">Sign my Guestbook!</a> ' +
+                '<a href="https://www.linkedin.com/in/rob-legood/">Sign my Guestbook!</a> ' +
                 '<span class="geocities-spin">📧</span>' +
             '</div>';
         return div;
