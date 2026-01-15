@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Rob LeGood</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Rob LeGood</a>
+        <div class="nav-links">
+            <a href="about.html">About Me</a>
+            <a href="boardgames.html">Boardgames</a>
+            <a href="blog.html" class="active">Blog</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="blog-layout">
+            <aside class="blog-sidebar">
+                <h2>Posts</h2>
+                <ul class="blog-nav-list" id="blog-nav-list">
+                    <li class="blog-nav-loading">Loading posts...</li>
+                </ul>
+            </aside>
+            <article class="blog-content" id="blog-content">
+                <div class="blog-loading">Loading...</div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
+    </footer>
+
+    <script src="scripts/blog.js"></script>
+
+</body>
+</html>
