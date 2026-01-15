@@ -49,6 +49,11 @@ nav {
     color: var(--accent);
 }
 
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
@@ -298,6 +303,93 @@ footer {
     border-top: 1px solid var(--bg-secondary);
 }
 
+/* Page Intro */
+.page-intro {
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Game List */
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.game-card {
+    display: flex;
+    gap: 25px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-3px);
+}
+
+.game-image {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-content {
+    flex: 1;
+}
+
+.game-content h3 {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.game-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.game-thoughts {
+    background: var(--bg-tertiary);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+}
+
+.game-thoughts h4 {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.game-thoughts p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     nav {
@@ -330,5 +422,14 @@ footer {
 
     .highlights {
         padding: 60px 20px;
+    }
+
+    .game-card {
+        flex-direction: column;
+    }
+
+    .game-image {
+        width: 100%;
+        height: 200px;
     }
 }

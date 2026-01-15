@@ -1,0 +1,37 @@
+[
+  {
+    "rank": 1,
+    "name": "Harmonies",
+    "image": "images/harmonies.jpg",
+    "description": "A serene puzzle game where players create landscapes by placing colorful tokens to form patterns and attract animals to their ecosystem. The satisfying spatial puzzle combines accessibility with surprising depth.",
+    "thoughts": "[Add your thoughts here]"
+  },
+  {
+    "rank": 2,
+    "name": "Frosthaven",
+    "image": "images/frosthaven.jpg",
+    "description": "A massive tactical combat adventure and sequel to Gloomhaven, featuring a new cast of characters defending a northern outpost against harsh wilderness threats. The campaign offers hundreds of hours of strategic dungeon-crawling gameplay.",
+    "thoughts": "[Add your thoughts here]"
+  },
+  {
+    "rank": 3,
+    "name": "Ayridia",
+    "image": "images/ayridia.jpg",
+    "description": "A euro-style strategy game combining resource management and area control as players build their civilization across a fantasy realm. The interlocking mechanisms reward careful planning and adaptation.",
+    "thoughts": "[Add your thoughts here]"
+  },
+  {
+    "rank": 4,
+    "name": "Take 7",
+    "image": "images/take7.jpg",
+    "description": "A fast-paced card game of number sequencing where players try to avoid collecting cards by strategically placing them in ascending rows. Simple rules make it perfect for any group while offering tense decision-making.",
+    "thoughts": "[Add your thoughts here]"
+  },
+  {
+    "rank": 5,
+    "name": "Carcassonne",
+    "image": "images/carcassonne.jpg",
+    "description": "The classic tile-laying game where players build medieval landscapes, claim features with meeples, and score points for completed cities, roads, and monasteries. A timeless gateway game that remains endlessly replayable.",
+    "thoughts": "[Add your thoughts here]"
+  }
+]
