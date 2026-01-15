@@ -7,183 +7,267 @@
     <style>
         /* Modern Reset & Base Styles */
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --light-text: #666;
-            --card-bg: #ffffff;
+            --bg-primary: #1e293b;
+            --bg-secondary: #334155;
+            --bg-tertiary: #0f172a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
         }
 
-        /* Layout Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-tertiary);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--bg-secondary);
         }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .title {
-            font-size: 1.25rem;
-            color: var(--accent-color);
+        .nav-logo:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
             font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 60px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+        }
+
+        .hero-welcome {
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 50px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
+            letter-spacing: 3px;
+            color: var(--accent);
             margin-bottom: 20px;
         }
 
-        p {
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 15px;
-            font-size: 1.1rem;
-            color: var(--light-text);
+            letter-spacing: -1px;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
-        .skill-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
 
-        .skill-card h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-        }
-
-        /* Button & Footer */
         .cta-button {
             display: inline-block;
-            background-color: #3b82f6;
-            color: white;
-            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-tertiary);
+            padding: 14px 35px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
-            transition: background-color 0.2s;
+            font-size: 1rem;
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .cta-button:hover {
-            background-color: #2563eb;
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
         }
 
+        /* Highlights Section */
+        .highlights {
+            padding: 80px 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .highlights-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .highlights h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background: var(--bg-secondary);
+            padding: 35px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .highlight-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             font-size: 0.9rem;
-            color: #aaa;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+            color: var(--text-secondary);
+            padding: 30px 20px;
+            background-color: var(--bg-tertiary);
+            border-top: 1px solid var(--bg-secondary);
         }
 
-        /* Mobile Adjustment */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 20px; }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .highlights {
+                padding: 60px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <header>
+    <nav>
+        <a href="index.html" class="nav-logo">Rob LeGood</a>
+        <div class="nav-links">
+            <a href="about.html">About Me</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-welcome">Welcome</div>
             <h1>Rob LeGood</h1>
-            <div class="title">Director, Software Solutions</div>
-        </header>
+            <div class="hero-title">Director, Software Solutions</div>
+            <p class="hero-tagline">
+                Building high-performing engineering teams and delivering technology solutions that drive business success.
+            </p>
+            <a href="about.html" class="cta-button">Learn More About Me</a>
+        </section>
 
-        <main>
-            <section id="about">
-                <h2>Executive Summary</h2>
-                <p>
-                    Strategic technology leader with over two decades of experience building high-performing engineering teams. 
-                    I specialize in bridging the gap between technical execution and business strategy, ensuring that software 
-                    delivery aligns with organizational goals.
-                </p>
-                <p>
-                    My focus is on operational excellence, fostering cultures of continuous improvement, and implementing 
-                    scalable architecture that stands the test of time.
-                </p>
-            </section>
-
-            <section id="competencies">
-                <h2>Core Competencies</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
+        <section class="highlights">
+            <div class="highlights-container">
+                <h2>Areas of Expertise</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
                         <h3>Leadership & Strategy</h3>
-                        <p>Team building, mentorship, budget management, and strategic roadmap planning.</p>
+                        <p>
+                            Two decades of experience building and mentoring engineering teams,
+                            managing budgets, and aligning technical roadmaps with business objectives.
+                        </p>
                     </div>
-                    <div class="skill-card">
+                    <div class="highlight-card">
                         <h3>Technical Architecture</h3>
-                        <p>Cloud infrastructure, system design, scalable distributed systems, and legacy modernization.</p>
+                        <p>
+                            Expertise in cloud infrastructure, system design, and scalable distributed
+                            systems. Proven track record in legacy modernization initiatives.
+                        </p>
                     </div>
-                    <div class="skill-card">
+                    <div class="highlight-card">
                         <h3>Operational Excellence</h3>
-                        <p>CI/CD implementation, DORA metrics analysis, and Agile/Lean methodologies.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Risk & Governance</h3>
-                        <p>Security compliance, vendor management, and technical due diligence.</p>
+                        <p>
+                            Deep focus on CI/CD implementation, DORA metrics optimization, and
+                            Agile/Lean methodologies to drive continuous improvement.
+                        </p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+    </main>
 
-            <section id="contact" style="text-align: center;">
-                <h2>Let's Connect</h2>
-                <p>I am always open to discussing technology leadership and innovation.</p>
-                <br>
-                <a href="mailto:rob.legood@gmail.com" class="cta-button">Contact Me</a>
-            </section>
-        </main>
-
-        <footer>
-            &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
-        </footer>
-
-    </div>
+    <footer>
+        &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
+    </footer>
 
 </body>
 </html>
