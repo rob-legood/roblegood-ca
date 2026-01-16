@@ -37,6 +37,11 @@ nav {
     border-bottom: 1px solid var(--bg-secondary);
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
 .nav-logo {
     font-size: 1.25rem;
     font-weight: 600;
@@ -47,6 +52,14 @@ nav {
 
 .nav-logo:hover {
     color: var(--accent);
+}
+
+.nav-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.5px;
+    margin-left: 8px;
 }
 
 .nav-links {
