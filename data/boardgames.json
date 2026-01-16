@@ -2,36 +2,36 @@
   {
     "rank": 1,
     "name": "Harmonies",
-    "image": "images/harmonies.jpg",
+    "image": "images/harmonies.webp",
     "description": "A serene puzzle game where players create landscapes by placing colorful tokens to form patterns and attract animals to their ecosystem. The satisfying spatial puzzle combines accessibility with surprising depth.",
-    "thoughts": "[Add your thoughts here]"
+    "thoughts": "This is my favorite new game of 2025.  My wife and I found in a cafe in Hamilton and immedately bought a copy to be played, and have played and taught it numerous times.  Quick to learn, but good depth"
   },
   {
     "rank": 2,
     "name": "Frosthaven",
-    "image": "images/frosthaven.jpg",
+    "image": "images/frosthaven.webp",
     "description": "A massive tactical combat adventure and sequel to Gloomhaven, featuring a new cast of characters defending a northern outpost against harsh wilderness threats. The campaign offers hundreds of hours of strategic dungeon-crawling gameplay.",
-    "thoughts": "[Add your thoughts here]"
-  },
-  {
-    "rank": 3,
-    "name": "Ayridia",
-    "image": "images/ayridia.jpg",
-    "description": "A euro-style strategy game combining resource management and area control as players build their civilization across a fantasy realm. The interlocking mechanisms reward careful planning and adaptation.",
-    "thoughts": "[Add your thoughts here]"
+    "thoughts": "It's hard not to keep this in the list as we keep playing a campaign that's now a year old.  It's not for everyone and you'll want the X-Haven app to help with EVERYTHING"
   },
   {
     "rank": 4,
-    "name": "Take 7",
-    "image": "images/take7.jpg",
-    "description": "A fast-paced card game of number sequencing where players try to avoid collecting cards by strategically placing them in ascending rows. Simple rules make it perfect for any group while offering tense decision-making.",
-    "thoughts": "[Add your thoughts here]"
+    "name": "Civolution",
+    "image": "images/civolution.webp",
+    "description": "Civolution is a complex, heavy Euro-style strategy game by Stefan Feld in which players act as deities using a unique dice-selection mechanic to guide a civilization's technological and cultural evolution over four eras.",
+    "thoughts": "It is not quick to teach and it is not a quick game to play but man it's good.  The action selection mechanic is very unique and almost needed when there are 22 different actions to take."
+  },
+  {
+    "rank": 3,
+    "name": "Flip 7",
+    "image": "images/flip7.webp",
+    "description": "A fast paced, press your luck game of drawing just one more card to earn more points with the risk of busting out.",
+    "thoughts": "My wife and I got this for my brother and his family for Christmas, immedately played 4 games, and my sister-in-law instrgramed it.  It must be good."
   },
   {
     "rank": 5,
-    "name": "Carcassonne",
-    "image": "images/carcassonne.jpg",
-    "description": "The classic tile-laying game where players build medieval landscapes, claim features with meeples, and score points for completed cities, roads, and monasteries. A timeless gateway game that remains endlessly replayable.",
-    "thoughts": "[Add your thoughts here]"
+    "name": "Draftasaurus",
+    "image": "images/draftasaurus.webp",
+    "description": "Draftusaurus is a light, fast-paced family game where players draft dinosaur meeples from hand to hand and strategically place them into their personal zoo parks to score points based on specific pen requirements.",
+    "thoughts": "We finally brought the real version.  I still think it's better on BoardGameArena, but it plays much better than expected live. A great little filler!"
   }
 ]
