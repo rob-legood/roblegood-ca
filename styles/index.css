@@ -124,6 +124,35 @@
     line-height: 1.7;
 }
 
+.rl-highlight-card.rl-highlight-loading {
+    opacity: 0.7;
+}
+
+.rl-highlight-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.rl-highlight-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.rl-highlight-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.rl-highlight-link::after {
+    content: ' \2192';
+}
+
 /* Mobile Adjustments - Index */
 @media (max-width: 768px) {
     .rl-weather-widget {
