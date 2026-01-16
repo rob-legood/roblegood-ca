@@ -1,0 +1,91 @@
+/* Boardgames Page - Game Cards */
+
+/* Game List */
+.rl-game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rl-game-card {
+    display: flex;
+    gap: 25px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s;
+}
+
+.rl-game-card:hover {
+    transform: translateY(-3px);
+}
+
+.rl-game-image {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rl-game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rl-game-content {
+    flex: 1;
+}
+
+.rl-game-content h3 {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.rl-game-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.rl-game-thoughts {
+    background: var(--bg-tertiary);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+}
+
+.rl-game-thoughts h4 {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rl-game-thoughts p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Mobile Adjustments - Boardgames */
+@media (max-width: 768px) {
+    .rl-game-card {
+        flex-direction: column;
+    }
+
+    .rl-game-image {
+        width: 100%;
+        height: 200px;
+    }
+}

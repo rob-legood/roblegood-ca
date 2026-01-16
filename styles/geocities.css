@@ -37,14 +37,14 @@
 }
 
 /* Base geocities styles */
-body.geocities-mode {
+body.rl-geocities-mode {
     font-family: "Comic Sans MS", "Chalkboard SE", cursive !important;
     background: #000080 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="30" fill="%23ffffff" font-size="8">★</text><text x="50" y="15" fill="%23ffff00" font-size="6">✦</text><text x="80" y="45" fill="%23ffffff" font-size="10">☆</text><text x="25" y="70" fill="%23ffff00" font-size="5">✧</text><text x="70" y="85" fill="%23ffffff" font-size="7">★</text><text x="5" y="95" fill="%23ffff00" font-size="6">✦</text><text x="90" y="60" fill="%23ffffff" font-size="8">☆</text></svg>') repeat !important;
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">👆</text></svg>'), auto;
 }
 
 /* Marquee banner */
-.geocities-marquee {
+.rl-geocities-marquee {
     position: fixed;
     top: 60px;
     left: 0;
@@ -57,7 +57,7 @@ body.geocities-mode {
     border-bottom: 3px ridge #c0c0c0;
 }
 
-.geocities-marquee span {
+.rl-geocities-marquee span {
     display: inline-block;
     white-space: nowrap;
     animation: marquee 15s linear infinite;
@@ -68,61 +68,61 @@ body.geocities-mode {
 }
 
 /* Navigation in geocities mode */
-body.geocities-mode nav {
+body.rl-geocities-mode nav {
     background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%) !important;
     border-bottom: 4px ridge #ffffff !important;
     border-top: 4px ridge #ffffff !important;
 }
 
-body.geocities-mode .nav-logo {
+body.rl-geocities-mode .rl-nav-logo {
     color: #ff00ff !important;
     text-shadow: 2px 2px #00ffff;
     animation: sparkle 1s ease-in-out infinite;
 }
 
-body.geocities-mode .nav-links a {
+body.rl-geocities-mode .rl-nav-links a {
     color: #0000ff !important;
     text-decoration: underline !important;
     font-weight: bold;
 }
 
-body.geocities-mode .nav-links a:hover {
+body.rl-geocities-mode .rl-nav-links a:hover {
     color: #ff0000 !important;
     background: #ffff00;
 }
 
 /* Hide weather widget in geocities mode */
-body.geocities-mode .weather-widget {
+body.rl-geocities-mode .rl-weather-widget {
     display: none !important;
 }
 
 /* Hero section */
-body.geocities-mode .hero {
+body.rl-geocities-mode .rl-hero {
     background: transparent !important;
     padding-top: 100px !important;
 }
 
-body.geocities-mode .hero-welcome {
+body.rl-geocities-mode .rl-hero-welcome {
     color: #00ff00 !important;
     font-size: 1.5rem !important;
     animation: blink 1s step-end infinite;
     text-shadow: 2px 2px #ff00ff;
 }
 
-body.geocities-mode .hero h1 {
+body.rl-geocities-mode .rl-hero h1 {
     color: #ffff00 !important;
     text-shadow: 3px 3px #ff0000, -1px -1px #00ffff !important;
     animation: rainbow 3s linear infinite;
     font-size: 3.5rem !important;
 }
 
-body.geocities-mode .hero-title {
+body.rl-geocities-mode .rl-hero-title {
     color: #00ffff !important;
     font-size: 1.8rem !important;
     text-shadow: 2px 2px #ff00ff;
 }
 
-body.geocities-mode .hero-tagline {
+body.rl-geocities-mode .rl-hero-tagline {
     color: #ffffff !important;
     background: #000000;
     padding: 15px;
@@ -130,7 +130,7 @@ body.geocities-mode .hero-tagline {
     font-size: 1.1rem !important;
 }
 
-body.geocities-mode .cta-button {
+body.rl-geocities-mode .rl-cta-button {
     background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%) !important;
     color: #000080 !important;
     border: 4px outset #ffffff !important;
@@ -141,47 +141,47 @@ body.geocities-mode .cta-button {
     box-shadow: 4px 4px #000000;
 }
 
-body.geocities-mode .cta-button:hover {
+body.rl-geocities-mode .rl-cta-button:hover {
     border-style: inset !important;
     transform: translate(2px, 2px);
     box-shadow: 2px 2px #000000;
 }
 
 /* Highlights section */
-body.geocities-mode .highlights {
+body.rl-geocities-mode .rl-highlights {
     background: transparent !important;
 }
 
-body.geocities-mode .highlights h2 {
+body.rl-geocities-mode .rl-highlights h2 {
     color: #ff00ff !important;
     text-shadow: 2px 2px #00ffff;
     border: none !important;
 }
 
-body.geocities-mode .highlight-card {
+body.rl-geocities-mode .rl-highlight-card {
     background: #000000 !important;
     border: 4px ridge #c0c0c0 !important;
     border-radius: 0 !important;
 }
 
-body.geocities-mode .highlight-card h3 {
+body.rl-geocities-mode .rl-highlight-card h3 {
     color: #00ff00 !important;
     text-shadow: 1px 1px #ff0000;
 }
 
-body.geocities-mode .highlight-card p {
+body.rl-geocities-mode .rl-highlight-card p {
     color: #ffffff !important;
 }
 
 /* Footer in geocities mode */
-body.geocities-mode footer {
+body.rl-geocities-mode footer {
     background: #000000 !important;
     border-top: 4px ridge #c0c0c0 !important;
     color: #00ff00 !important;
 }
 
 /* Geocities extras container */
-.geocities-extras {
+.rl-geocities-extras {
     position: fixed;
     bottom: 80px;
     left: 50%;
@@ -191,7 +191,7 @@ body.geocities-mode footer {
     font-family: "Comic Sans MS", cursive;
 }
 
-.geocities-counter {
+.rl-geocities-counter {
     background: #000000;
     color: #00ff00;
     padding: 10px 20px;
@@ -201,14 +201,14 @@ body.geocities-mode footer {
     font-size: 1.2rem;
 }
 
-.geocities-badges {
+.rl-geocities-badges {
     display: flex;
     gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.geocities-badge {
+.rl-geocities-badge {
     background: #c0c0c0;
     border: 3px outset #ffffff;
     padding: 8px 12px;
@@ -218,11 +218,11 @@ body.geocities-mode footer {
     cursor: pointer;
 }
 
-.geocities-badge:hover {
+.rl-geocities-badge:hover {
     border-style: inset;
 }
 
-.geocities-guestbook {
+.rl-geocities-guestbook {
     margin-top: 10px;
     color: #ffff00;
     animation: blink 0.8s step-end infinite;
@@ -230,12 +230,12 @@ body.geocities-mode footer {
     text-shadow: 1px 1px #ff0000;
 }
 
-.geocities-guestbook a {
+.rl-geocities-guestbook a {
     color: #00ffff !important;
     text-decoration: underline;
 }
 
-.geocities-construction {
+.rl-geocities-construction {
     color: #ffff00;
     font-size: 1.5rem;
     margin-bottom: 15px;
@@ -243,7 +243,7 @@ body.geocities-mode footer {
 }
 
 /* Rainbow HR */
-.geocities-hr {
+.rl-geocities-hr {
     height: 10px;
     background: linear-gradient(90deg,
         #ff0000, #ff8800, #ffff00, #00ff00,
@@ -253,7 +253,7 @@ body.geocities-mode footer {
 }
 
 /* Spinning email icon */
-.geocities-spin {
+.rl-geocities-spin {
     display: inline-block;
     animation: spin 2s linear infinite;
     font-size: 1.5rem;

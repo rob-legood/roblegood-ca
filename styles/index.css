@@ -1,0 +1,148 @@
+/* Index Page - Hero, Highlights, Weather */
+
+/* Weather Widget */
+.rl-weather-widget {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: var(--bg-secondary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.9rem;
+    z-index: 999;
+}
+
+.rl-weather-location {
+    color: var(--text-secondary);
+}
+
+.rl-weather-condition {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.rl-weather-temp {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Hero Section */
+.rl-hero {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+}
+
+.rl-hero-welcome {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.rl-hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.rl-hero-title {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.rl-hero-tagline {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* Highlights Section */
+.rl-highlights {
+    padding: 80px 20px;
+    background-color: var(--bg-primary);
+}
+
+.rl-highlights-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rl-highlights h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    border-left: none;
+    padding-left: 0;
+}
+
+.rl-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.rl-highlight-card {
+    background: var(--bg-secondary);
+    padding: 35px 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rl-highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.rl-highlight-card h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.rl-highlight-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Mobile Adjustments - Index */
+@media (max-width: 768px) {
+    .rl-weather-widget {
+        display: none;
+    }
+
+    .rl-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .rl-hero-title {
+        font-size: 1.2rem;
+    }
+
+    .rl-hero-tagline {
+        font-size: 1rem;
+    }
+
+    .rl-highlights {
+        padding: 60px 20px;
+    }
+}

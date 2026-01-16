@@ -105,20 +105,20 @@
         var navList = document.getElementById('blog-nav-list');
 
         if (posts.length === 0) {
-            navList.innerHTML = '<li class="blog-nav-empty">No posts found.</li>';
+            navList.innerHTML = '<li class="rl-blog-nav-empty">No posts found.</li>';
             return;
         }
 
         navList.innerHTML = posts.map(function(post, index) {
             var activeClass = index === currentPostIndex ? ' active' : '';
             var title = post.fields.title || 'Untitled';
-            return '<li class="blog-nav-item' + activeClass + '" data-index="' + index + '">' +
+            return '<li class="rl-blog-nav-item' + activeClass + '" data-index="' + index + '">' +
                 escapeHtml(title) +
                 '</li>';
         }).join('');
 
         // Add click handlers
-        var items = navList.querySelectorAll('.blog-nav-item');
+        var items = navList.querySelectorAll('.rl-blog-nav-item');
         items.forEach(function(item) {
             item.addEventListener('click', function() {
                 var index = parseInt(this.getAttribute('data-index'), 10);
@@ -131,7 +131,7 @@
         var contentEl = document.getElementById('blog-content');
 
         if (!post) {
-            contentEl.innerHTML = '<div class="blog-error">Post not found.</div>';
+            contentEl.innerHTML = '<div class="rl-blog-error">Post not found.</div>';
             return;
         }
 
@@ -157,18 +157,18 @@
         }
 
         contentEl.innerHTML =
-            '<header class="blog-post-header">' +
-                '<h1 class="blog-post-title">' + escapeHtml(title) + '</h1>' +
-                '<time class="blog-post-date">' + date + '</time>' +
+            '<header class="rl-blog-post-header">' +
+                '<h1 class="rl-blog-post-title">' + escapeHtml(title) + '</h1>' +
+                '<time class="rl-blog-post-date">' + date + '</time>' +
             '</header>' +
-            '<div class="blog-post-body">' + bodyContent + '</div>';
+            '<div class="rl-blog-post-body">' + bodyContent + '</div>';
     }
 
     function selectPost(index) {
         currentPostIndex = index;
 
         // Update active state in sidebar
-        var items = document.querySelectorAll('.blog-nav-item');
+        var items = document.querySelectorAll('.rl-blog-nav-item');
         items.forEach(function(item, i) {
             if (i === index) {
                 item.classList.add('active');
@@ -202,15 +202,15 @@
                     renderPost(posts[0]);
                 } else {
                     document.getElementById('blog-content').innerHTML =
-                        '<div class="blog-empty">No blog posts yet. Check back soon!</div>';
+                        '<div class="rl-blog-empty">No blog posts yet. Check back soon!</div>';
                 }
             })
             .catch(function(error) {
                 console.error('Error fetching blog posts:', error);
                 document.getElementById('blog-nav-list').innerHTML =
-                    '<li class="blog-nav-error">Failed to load posts.</li>';
+                    '<li class="rl-blog-nav-error">Failed to load posts.</li>';
                 document.getElementById('blog-content').innerHTML =
-                    '<div class="blog-error">Unable to load blog posts. Please try again later.</div>';
+                    '<div class="rl-blog-error">Unable to load blog posts. Please try again later.</div>';
             });
     }
 
@@ -227,7 +227,7 @@
             .catch(function(error) {
                 console.error('Error loading config:', error);
                 document.getElementById('blog-content').innerHTML =
-                    '<div class="blog-error">Configuration error. Please check setup.</div>';
+                    '<div class="rl-blog-error">Configuration error. Please check setup.</div>';
             });
     }
 

@@ -79,7 +79,7 @@
     }
 
     function setTitle() {
-        var titleElement = document.querySelector('.nav-title');
+        var titleElement = document.querySelector('.rl-nav-title');
         if (titleElement) {
             titleElement.textContent = '| ' + getRandomTitle();
         }

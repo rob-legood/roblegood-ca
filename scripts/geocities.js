@@ -6,7 +6,7 @@
 
     function createMarquee() {
         var div = document.createElement('div');
-        div.className = 'geocities-marquee';
+        div.className = 'rl-geocities-marquee';
         div.innerHTML = '<span>★☆★ WELCOME TO ROB\'S CYBER SPACE ★☆★ You have entered the INFORMATION SUPERHIGHWAY ★☆★ This site is UNDER CONSTRUCTION ★☆★ Sign my GUESTBOOK ★☆★ Best viewed with Netscape Navigator 4.0 ★☆★</span>';
         return div;
     }
@@ -14,20 +14,20 @@
     function createExtras() {
         var visitorCount = Math.floor(Math.random() * 50000) + 10000;
         var div = document.createElement('div');
-        div.className = 'geocities-extras';
+        div.className = 'rl-geocities-extras';
         div.innerHTML =
-            '<div class="geocities-construction">🚧 UNDER CONSTRUCTION 🚧</div>' +
-            '<hr class="geocities-hr">' +
-            '<div class="geocities-counter">You are visitor #' + visitorCount.toString().padStart(8, '0') + '</div>' +
-            '<div class="geocities-badges">' +
-                '<div class="geocities-badge">🌐 Netscape NOW!</div>' +
-                '<div class="geocities-badge">💻 Best viewed 800x600</div>' +
-                '<div class="geocities-badge">🏆 GeoCities Award Winner</div>' +
+            '<div class="rl-geocities-construction">🚧 UNDER CONSTRUCTION 🚧</div>' +
+            '<hr class="rl-geocities-hr">' +
+            '<div class="rl-geocities-counter">You are visitor #' + visitorCount.toString().padStart(8, '0') + '</div>' +
+            '<div class="rl-geocities-badges">' +
+                '<div class="rl-geocities-badge">🌐 Netscape NOW!</div>' +
+                '<div class="rl-geocities-badge">💻 Best viewed 800x600</div>' +
+                '<div class="rl-geocities-badge">🏆 GeoCities Award Winner</div>' +
             '</div>' +
-            '<div class="geocities-guestbook">' +
-                '<span class="geocities-spin">📧</span> ' +
+            '<div class="rl-geocities-guestbook">' +
+                '<span class="rl-geocities-spin">📧</span> ' +
                 '<a href="https://www.linkedin.com/in/rob-legood/">Sign my Guestbook!</a> ' +
-                '<span class="geocities-spin">📧</span>' +
+                '<span class="rl-geocities-spin">📧</span>' +
             '</div>';
         return div;
     }
@@ -50,7 +50,7 @@
 
     function enableGeocities() {
         loadStylesheet();
-        document.body.classList.add('geocities-mode');
+        document.body.classList.add('rl-geocities-mode');
 
         if (!marquee) {
             marquee = createMarquee();
@@ -72,7 +72,7 @@
     }
 
     function disableGeocities() {
-        document.body.classList.remove('geocities-mode');
+        document.body.classList.remove('rl-geocities-mode');
         removeStylesheet();
 
         if (marquee && marquee.parentNode) {
@@ -95,7 +95,7 @@
     }
 
     function toggleGeocities() {
-        if (document.body.classList.contains('geocities-mode')) {
+        if (document.body.classList.contains('rl-geocities-mode')) {
             disableGeocities();
         } else {
             enableGeocities();

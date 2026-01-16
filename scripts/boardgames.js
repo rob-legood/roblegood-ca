@@ -1,14 +1,14 @@
 (function() {
     function renderGameCard(game) {
         return `
-            <article class="game-card">
-                <div class="game-image">
+            <article class="rl-game-card">
+                <div class="rl-game-image">
                     <img src="${game.image}" alt="${game.name} board game">
                 </div>
-                <div class="game-content">
+                <div class="rl-game-content">
                     <h3>${game.rank}. ${game.name}</h3>
-                    <p class="game-description">${game.description}</p>
-                    <div class="game-thoughts">
+                    <p class="rl-game-description">${game.description}</p>
+                    <div class="rl-game-thoughts">
                         <h4>My Thoughts</h4>
                         <p>${game.thoughts}</p>
                     </div>

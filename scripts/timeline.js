@@ -1,6 +1,6 @@
 (function() {
-    const markers = document.querySelectorAll('.timeline-marker');
-    const sections = document.querySelectorAll('.timeline-section');
+    const markers = document.querySelectorAll('.rl-timeline-marker');
+    const sections = document.querySelectorAll('.rl-timeline-section');
 
     if (!markers.length || !sections.length) return;
 
@@ -11,7 +11,7 @@
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
                 const navHeight = 60;
-                const timelineHeight = document.querySelector('.timeline-nav').offsetHeight;
+                const timelineHeight = document.querySelector('.rl-timeline-nav').offsetHeight;
                 const offset = navHeight + timelineHeight + 20;
                 const targetPosition = targetSection.offsetTop - offset;
 
