@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Rob LeGood</title>
+    <title>My Journey | Rob LeGood</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,61 +18,163 @@
     </nav>
 
     <main>
-        <div class="container">
+        <div class="timeline-nav">
+            <div class="timeline-track">
+                <div class="timeline-line"></div>
+                <div class="timeline-markers">
+                    <button class="timeline-marker active" data-target="almost-a-teacher">
+                        <span class="timeline-dot"></span>
+                        <span class="timeline-label">Almost a Teacher</span>
+                    </button>
+                    <button class="timeline-marker" data-target="junior-years">
+                        <span class="timeline-dot"></span>
+                        <span class="timeline-label">The Programming Years</span>
+                    </button>
+                    <button class="timeline-marker" data-target="ic-to-manager">
+                        <span class="timeline-dot"></span>
+                        <span class="timeline-label">From IC to Manager</span>
+                    </button>
+                    <button class="timeline-marker" data-target="director-years">
+                        <span class="timeline-dot"></span>
+                        <span class="timeline-label">The Director Years</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            <header class="page-header">
-                <h1>About Me</h1>
-                <div class="title">Director, Software Solutions</div>
-            </header>
-
-            <section id="about">
-                <h2>Executive Summary</h2>
+        <section id="almost-a-teacher" class="timeline-section">
+            <div class="timeline-content">
+                <span class="timeline-era">1991 - 1996</span>
+                <h2>Almost a Teacher</h2>
                 <p>
-                    Strategic technology leader with over two decades of experience building high-performing engineering teams.
-                    I specialize in bridging the gap between technical execution and business strategy, ensuring that software
-                    delivery aligns with organizational goals.
+                    Before I ever wrote a line of code professionally, I was set on a completely different path.
+                    I studied education and spent time learning how to break down complex concepts into digestible
+                    lessons. Little did I know, this foundation would become one of my greatest assets in tech.
                 </p>
                 <p>
-                    My focus is on operational excellence, fostering cultures of continuous improvement, and implementing
-                    scalable architecture that stands the test of time.
+                    The classroom taught me patience, empathy, and the art of meeting people where they are.
+                    These skills have proven invaluable when mentoring developers, explaining technical concepts
+                    to stakeholders, and building teams that thrive on clear communication.
                 </p>
-            </section>
-
-            <section id="competencies">
-                <h2>Core Competencies</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Leadership & Strategy</h3>
-                        <p>Team building, mentorship, budget management, and strategic roadmap planning.</p>
+                <div class="timeline-highlights">
+                    <div class="timeline-highlight">
+                        <h4>Key Insight</h4>
+                        <p>Teaching is about understanding your audience and adapting your approach accordingly.</p>
                     </div>
-                    <div class="skill-card">
-                        <h3>Technical Architecture</h3>
-                        <p>Cloud infrastructure, system design, scalable distributed systems, and legacy modernization.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Operational Excellence</h3>
-                        <p>CI/CD implementation, DORA metrics analysis, and Agile/Lean methodologies.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Risk & Governance</h3>
-                        <p>Security compliance, vendor management, and technical due diligence.</p>
+                    <div class="timeline-highlight">
+                        <h4>Transferable Skill</h4>
+                        <p>The ability to simplify complexity became my superpower in technical leadership.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="contact" style="text-align: center;">
+        <section id="junior-years" class="timeline-section">
+            <div class="timeline-content">
+                <span class="timeline-era">1997 - 2012</span>
+                <h2>The Programming Years</h2>
+                <p>
+                    My transition into software development was a leap of faith. Starting as a junior developer,
+                    I embraced the steep learning curve with enthusiasm. Every bug was a puzzle, every feature
+                    shipped was a victory, and every code review was a masterclass.
+                </p>
+                <p>
+                    These formative years taught me the importance of humility, continuous learning, and the
+                    value of a supportive team. I learned not just how to write code, but how to think
+                    systematically about problems and solutions.
+                </p>
+                <div class="timeline-highlights">
+                    <div class="timeline-highlight">
+                        <h4>First Language</h4>
+                        <p>Cut my teeth on the fundamentals, building a solid foundation in programming principles.</p>
+                    </div>
+                    <div class="timeline-highlight">
+                        <h4>Mindset Shift</h4>
+                        <p>Learned that asking questions is a strength, not a weakness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ic-to-manager" class="timeline-section">
+            <div class="timeline-content">
+                <span class="timeline-era">2013 - 2021</span>
+                <h2>From IC to Manager</h2>
+                <p>
+                    The shift from individual contributor to manager was perhaps the most challenging transition
+                    of my career. Suddenly, success wasn't measured by the code I shipped, but by how well I
+                    could enable others to do their best work.
+                </p>
+                <p>
+                    I had to learn to let go of the keyboard and pick up new tools: one-on-ones, performance
+                    reviews, hiring decisions, and the delicate art of giving constructive feedback. My teaching
+                    background proved invaluable here, helping me develop talent and build cohesive teams.
+                </p>
+                <div class="timeline-highlights">
+                    <div class="timeline-highlight">
+                        <h4>Biggest Challenge</h4>
+                        <p>Learning that my success was now measured by my team's achievements, not my own code.</p>
+                    </div>
+                    <div class="timeline-highlight">
+                        <h4>Key Learning</h4>
+                        <p>People management requires intentional practice and continuous improvement.</p>
+                    </div>
+                    <div class="timeline-highlight">
+                        <h4>Proud Moment</h4>
+                        <p>Watching team members grow into roles they never thought possible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="director-years" class="timeline-section">
+            <div class="timeline-content">
+                <span class="timeline-era">2022 - Present</span>
+                <h2>The Director Years</h2>
+                <p>
+                    Today, as a Director of Software Solutions, I operate at the intersection of technology
+                    and business strategy. My role has evolved from building features to building organizations,
+                    from solving technical problems to shaping engineering culture.
+                </p>
+                <p>
+                    I focus on creating environments where teams can do their best work: establishing clear
+                    processes, removing roadblocks, and ensuring alignment between technical decisions and
+                    business objectives. Every lesson from my journey contributes to how I lead today.
+                </p>
+                <div class="timeline-highlights">
+                    <div class="timeline-highlight">
+                        <h4>Current Focus</h4>
+                        <p>Building empowered teams that deliver exceptional results.</p>
+                    </div>
+                    <div class="timeline-highlight">
+                        <h4>Philosophy</h4>
+                        <p>Great technology comes from great cultures, not just great code.</p>
+                    </div>
+                    <div class="timeline-highlight">
+                        <h4>Looking Ahead</h4>
+                        <p>Continuing to learn, grow, and help others do the same.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="timeline-section contact-section">
+            <div class="timeline-content" style="text-align: center;">
                 <h2>Let's Connect</h2>
-                <p>I am always open to discussing technology leadership and innovation.</p>
-                <br>
-                <a href="https://www.linkedin.com/in/rob-legood/" class="cta-button">Contact Me</a>
-            </section>
-
-        </div>
+                <p>
+                    Whether you want to discuss technology leadership, share ideas about building
+                    great engineering cultures, or just chat about board games, I'd love to hear from you.
+                </p>
+                <a href="https://www.linkedin.com/in/rob-legood/" class="cta-button">Contact Me on LinkedIn</a>
+            </div>
+        </section>
     </main>
 
     <footer>
         &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
     </footer>
+
+    <script src="scripts/timeline.js"></script>
 
 </body>
 </html>
