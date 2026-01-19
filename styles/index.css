@@ -34,12 +34,31 @@
 .rl-hero {
     min-height: 40vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 60px 20px;
+    padding: 20px 20px;
     background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+}
+
+.rl-hero-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+}
+
+.rl-hero-headshot {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.rl-hero-content {
+    text-align: left;
 }
 
 .rl-hero-welcome {
@@ -75,7 +94,7 @@
 
 /* Highlights Section */
 .rl-highlights {
-    padding: 80px 20px;
+    padding: 10px 20px 80px;
     background-color: var(--bg-primary);
 }
 
@@ -176,6 +195,21 @@
 @media (max-width: 768px) {
     .rl-weather-widget {
         display: none;
+    }
+
+    .rl-hero-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .rl-hero-headshot {
+        width: 200px;
+        height: 200px;
+    }
+
+    .rl-hero-content {
+        text-align: center;
     }
 
     .rl-hero h1 {
