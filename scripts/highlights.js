@@ -27,6 +27,14 @@
         return words.slice(0, wordCount).join(' ') + '...';
     }
 
+    // Truncate text to specified number of characters
+    function truncateChars(text, charCount) {
+        if (text.length <= charCount) {
+            return text;
+        }
+        return text.substring(0, charCount) + '...';
+    }
+
     // Format date for display
     function formatDate(dateString) {
         if (!dateString) return '';
@@ -109,6 +117,42 @@
             '<a href="boardgames.html" class="rl-highlight-link">View rankings</a>';
     }
 
+    // Render the recommendation card with fetched data
+    function renderRecommendationCard(recommendation) {
+        var container = document.getElementById('highlight-recommendation');
+        if (!container) return;
+
+        var title = recommendation.fields.title || 'Untitled';
+        var description = recommendation.fields.description || '';
+        var link = recommendation.fields.link || '';
+
+        var truncatedDescription = truncateWords(description, 50);
+
+        container.classList.remove('rl-highlight-loading');
+        var html = '<h3>' + escapeHtml(title) + '</h3>' +
+            '<p>' + escapeHtml(truncatedDescription) + '</p>';
+
+        if (link) {
+            html += '<a href="' + escapeHtml(link) + '" class="rl-highlight-link" target="_blank" rel="noopener noreferrer">Check it out</a>';
+        }
+
+        html += '<a href="recommendations.html" class="rl-highlight-link">More recommendations</a>';
+
+        container.innerHTML = html;
+    }
+
+    // Render error state for recommendation card
+    function renderRecommendationError() {
+        var container = document.getElementById('highlight-recommendation');
+        if (!container) return;
+
+        container.classList.remove('rl-highlight-loading');
+        container.innerHTML =
+            '<h3>Latest Recommendation</h3>' +
+            '<p>Unable to load recommendation. Check back later!</p>' +
+            '<a href="recommendations.html" class="rl-highlight-link">View recommendations</a>';
+    }
+
     // Fetch latest blog post from Contentful
     function fetchLatestBlogPost() {
         fetch('data/contentful-config.json')
@@ -166,10 +210,45 @@
             });
     }
 
+    // Fetch latest recommendation from Contentful
+    function fetchLatestRecommendation() {
+        fetch('data/contentful-config.json')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(config) {
+                var url = 'https://cdn.contentful.com/spaces/' + config.spaceId + '/entries' +
+                    '?access_token=' + config.accessToken +
+                    '&content_type=recommendations' +
+                    '&order=-fields.publishedDate' +
+                    '&limit=1';
+
+                return fetch(url);
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch recommendation');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                if (data.items && data.items.length > 0) {
+                    renderRecommendationCard(data.items[0]);
+                } else {
+                    renderRecommendationError();
+                }
+            })
+            .catch(function(error) {
+                console.error('Error fetching recommendation:', error);
+                renderRecommendationError();
+            });
+    }
+
     // Initialize highlights
     function init() {
         fetchLatestBlogPost();
         fetchTopBoardgame();
+        fetchLatestRecommendation();
     }
 
     // Run init when DOM is ready

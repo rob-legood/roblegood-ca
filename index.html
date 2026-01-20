@@ -17,14 +17,18 @@
             <a href="about.html">About Me</a>
             <a href="boardgames.html">Boardgames</a>
             <a href="blog.html">Blog</a>
+            <a href="recommendations.html">Recommendations</a>
         </div>
     </nav>
 
     <main>
         <div class="rl-weather-widget" id="weather-widget">
-            <span class="rl-weather-location">Kitchener, ON</span>
-            <span class="rl-weather-condition" id="weather-condition">--</span>
-            <span class="rl-weather-temp" id="weather-temp">--°C</span>
+            <span class="rl-weather-label">Where I'm at</span>
+            <div class="rl-weather-info">
+                <span class="rl-weather-location">Kitchener, ON</span>
+                <span class="rl-weather-condition" id="weather-condition">--</span>
+                <span class="rl-weather-temp" id="weather-temp">--°C</span>
+            </div>
         </div>
 
         <section class="rl-hero">
@@ -44,7 +48,7 @@
 
         <section class="rl-highlights">
             <div class="rl-highlights-container">
-                <h2>Currently</h2>
+
                 <div class="rl-highlights-grid">
                     <div class="rl-highlight-wrapper">
                         <span class="rl-highlight-tab">Blog</span>
@@ -62,9 +66,9 @@
                     </div>
                     <div class="rl-highlight-wrapper">
                         <span class="rl-highlight-tab">Recommendations</span>
-                        <div class="rl-highlight-card" id="highlight-watching">
-                            <h3>Recommended to Watch</h3>
-                            <p>Coming soon - check back for my latest recommendations!</p>
+                        <div class="rl-highlight-card rl-highlight-loading" id="highlight-recommendation">
+                            <h3>Latest Recommendation</h3>
+                            <p>Loading...</p>
                         </div>
                     </div>
                 </div>

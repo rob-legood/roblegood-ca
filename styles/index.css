@@ -10,10 +10,23 @@
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
     font-size: 0.9rem;
     z-index: 999;
+}
+
+.rl-weather-label {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.rl-weather-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .rl-weather-location {
