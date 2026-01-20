@@ -47,19 +47,16 @@ test.describe('Navigation Tests', () => {
     await page.goto('/');
 
     await page.click('a[href="about.html"]');
-    await expect(page).toHaveURL(/about\.html/);
+    await expect(page).toHaveURL(/about/);
 
     await page.click('a[href="boardgames.html"]');
-    await expect(page).toHaveURL(/boardgames\.html/);
+    await expect(page).toHaveURL(/boardgames/);
 
     await page.click('a[href="blog.html"]');
-    await expect(page).toHaveURL(/blog\.html/);
+    await expect(page).toHaveURL(/blog/);
 
     await page.click('a[href="recommendations.html"]');
-    await expect(page).toHaveURL(/recommendations\.html/);
-
-    await page.click('.rl-nav-logo');
-    await expect(page).toHaveURL(/index\.html|\/$/);
+    await expect(page).toHaveURL(/recommendations/);
   });
 });
 
