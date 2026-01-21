@@ -91,6 +91,23 @@ body.rl-geocities-mode .rl-nav-links a:hover {
     background: #ffff00;
 }
 
+/* Hamburger menu in geocities mode */
+body.rl-geocities-mode .rl-nav-hamburger-line {
+    background-color: #000080 !important;
+}
+
+@media (max-width: 768px) {
+    body.rl-geocities-mode .rl-nav-links {
+        background: linear-gradient(180deg, #c0c0c0 0%, #a0a0a0 100%);
+        border: 4px ridge #ffffff;
+        margin-top: 10px;
+    }
+
+    body.rl-geocities-mode .rl-nav-links a {
+        border-top-color: #808080 !important;
+    }
+}
+
 /* Hide weather widget in geocities mode */
 body.rl-geocities-mode .rl-weather-widget {
     display: none !important;

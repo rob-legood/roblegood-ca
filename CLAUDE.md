@@ -12,6 +12,7 @@ This is a personal portfolio website for Rob LeGood, hosted on Cloudflare Pages.
 - **Pages**: `index.html` (home/landing page), `about.html` (career timeline), `boardgames.html`, `blog.html`
 - **Styling**: `styles/` folder contains modular CSS files
 - **Scripts**: `scripts/` folder contains JavaScript files, each with a single purpose
+  - `mobile-nav.js`: Handles hamburger menu toggle for mobile viewports
   - `weather.js`: Fetches and displays current weather from Open-Meteo API
   - `random-title.js`: Displays random job titles in the navbar
   - `timeline.js`: Handles career timeline animations and navigation
@@ -63,3 +64,28 @@ styles/
 - Scripts are loaded at the end of HTML files before `</body>`
 - Use IIFEs to avoid polluting the global namespace
 - Use "rl-" prefix when referencing CSS classes in JavaScript
+
+### Mobile Navigation
+
+New pages must include the hamburger button markup in the nav and the mobile-nav.js script:
+
+```html
+<nav>
+    <div class="rl-nav-brand">
+        <a href="index.html" class="rl-nav-logo">Rob LeGood</a><span class="rl-nav-title"></span>
+    </div>
+    <button class="rl-nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="rl-nav-hamburger-line"></span>
+        <span class="rl-nav-hamburger-line"></span>
+        <span class="rl-nav-hamburger-line"></span>
+    </button>
+    <div class="rl-nav-links">
+        <!-- nav links here -->
+    </div>
+</nav>
+```
+
+Include the mobile-nav.js script before other page scripts:
+```html
+<script src="scripts/mobile-nav.js"></script>
+```
