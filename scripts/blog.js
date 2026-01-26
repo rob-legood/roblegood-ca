@@ -1,7 +1,11 @@
 (function() {
     var config = null;
     var posts = [];
+    var includes = {}; // Store linked entries from Contentful
     var currentPostIndex = 0;
+    var searchQuery = '';
+    var selectedTags = [];
+    var allTags = []; // Tags fetched from Contentful
 
     // Rich Text renderer for Contentful
     function renderRichText(richText) {
@@ -101,15 +105,170 @@
         });
     }
 
-    function renderSidebar() {
-        var navList = document.getElementById('blog-nav-list');
+    function fetchTags() {
+        var url = 'https://cdn.contentful.com/spaces/' + config.spaceId + '/entries' +
+            '?access_token=' + config.accessToken +
+            '&content_type=tags';
 
-        if (posts.length === 0) {
+        return fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch tags: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                allTags = (data.items || []).map(function(tag) {
+                    return {
+                        id: tag.sys.id,
+                        name: tag.fields.name || tag.fields.title || ''
+                    };
+                }).filter(function(tag) {
+                    return tag.name;
+                });
+            })
+            .catch(function(error) {
+                console.error('Error fetching tags:', error);
+                allTags = [];
+            });
+    }
+
+    function openFilterModal() {
+        document.getElementById('blog-filter-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFilterModal() {
+        document.getElementById('blog-filter-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function updateFilterCount() {
+        var count = selectedTags.length + (searchQuery ? 1 : 0);
+        var countEl = document.getElementById('blog-filter-count');
+        countEl.textContent = count > 0 ? count : '';
+        countEl.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+
+    function renderFilters() {
+        var filtersEl = document.getElementById('blog-filters');
+        var hasActiveFilters = searchQuery || selectedTags.length > 0;
+
+        var html = '<input type="text" class="rl-blog-search" id="blog-search" placeholder="Search posts..." value="' + escapeHtml(searchQuery) + '">';
+
+        if (allTags.length > 0) {
+            html += '<div class="rl-blog-filter-tags">';
+            html += allTags.map(function(tag) {
+                var isActive = selectedTags.indexOf(tag.id) !== -1;
+                return '<button class="rl-blog-filter-tag' + (isActive ? ' active' : '') + '" data-tag-id="' + tag.id + '">' +
+                    escapeHtml(tag.name) + '</button>';
+            }).join('');
+            html += '</div>';
+        }
+
+        if (hasActiveFilters) {
+            html += '<button class="rl-blog-clear-filters" id="blog-clear-filters">Clear Filters</button>';
+        }
+
+        filtersEl.innerHTML = html;
+        attachFilterListeners();
+    }
+
+    function getFilteredPosts() {
+        return posts.filter(function(post) {
+            // Search filter
+            if (searchQuery) {
+                var query = searchQuery.toLowerCase();
+                var title = (post.fields.title || '').toLowerCase();
+                var body = '';
+                var bodyField = post.fields.blogContent || post.fields.content || post.fields.body;
+                if (typeof bodyField === 'string') {
+                    body = bodyField.toLowerCase();
+                } else if (bodyField && bodyField.content) {
+                    body = JSON.stringify(bodyField.content).toLowerCase();
+                }
+                if (title.indexOf(query) === -1 && body.indexOf(query) === -1) {
+                    return false;
+                }
+            }
+
+            // Tag filter (must have ALL selected tags)
+            if (selectedTags.length > 0) {
+                var postTagIds = (post.fields.tags || []).map(function(tag) {
+                    return tag.sys && tag.sys.id;
+                }).filter(Boolean);
+
+                for (var i = 0; i < selectedTags.length; i++) {
+                    if (postTagIds.indexOf(selectedTags[i]) === -1) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        });
+    }
+
+    function attachFilterListeners() {
+        var searchInput = document.getElementById('blog-search');
+        var debounceTimer;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(function() {
+                searchQuery = searchInput.value;
+                applyFilters();
+            }, 300);
+        });
+
+        var tagButtons = document.querySelectorAll('.rl-blog-filter-tag');
+        tagButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var tagId = this.getAttribute('data-tag-id');
+                var index = selectedTags.indexOf(tagId);
+                if (index === -1) {
+                    selectedTags.push(tagId);
+                } else {
+                    selectedTags.splice(index, 1);
+                }
+                applyFilters();
+            });
+        });
+
+        var clearBtn = document.getElementById('blog-clear-filters');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                searchQuery = '';
+                selectedTags = [];
+                applyFilters();
+            });
+        }
+    }
+
+    function applyFilters() {
+        renderFilters();
+        updateFilterCount();
+        var filtered = getFilteredPosts();
+        renderSidebar(filtered);
+        if (filtered.length > 0) {
+            currentPostIndex = posts.indexOf(filtered[0]);
+            renderPost(filtered[0]);
+        } else {
+            document.getElementById('blog-content').innerHTML =
+                '<div class="rl-blog-empty">No posts match your filters.</div>';
+        }
+    }
+
+    function renderSidebar(filteredPosts) {
+        var navList = document.getElementById('blog-nav-list');
+        var postsToRender = filteredPosts || posts;
+
+        if (postsToRender.length === 0) {
             navList.innerHTML = '<li class="rl-blog-nav-empty">No posts found.</li>';
             return;
         }
 
-        navList.innerHTML = posts.map(function(post, index) {
+        navList.innerHTML = postsToRender.map(function(post) {
+            var index = posts.indexOf(post);
             var activeClass = index === currentPostIndex ? ' active' : '';
             var title = post.fields.title || 'Untitled';
             return '<li class="rl-blog-nav-item' + activeClass + '" data-index="' + index + '">' +
@@ -139,6 +298,27 @@
         var date = formatDate(post.fields.publishedDate || post.sys.createdAt);
         var bodyContent = '';
 
+        // Build tags HTML if tags exist
+        var tags = post.fields.tags || [];
+        var tagsHtml = '';
+        if (tags.length > 0) {
+            tagsHtml = '<div class="rl-blog-post-tags">' +
+                tags.map(function(tag) {
+                    var tagName = '';
+                    if (typeof tag === 'string') {
+                        tagName = tag;
+                    } else if (tag.sys && tag.sys.id && includes[tag.sys.id]) {
+                        // Resolve linked entry from includes
+                        var linkedEntry = includes[tag.sys.id];
+                        tagName = linkedEntry.fields.name || linkedEntry.fields.title || '';
+                    } else if (tag.name) {
+                        tagName = tag.name;
+                    }
+                    return tagName ? '<span class="rl-blog-tag">' + escapeHtml(tagName) + '</span>' : '';
+                }).join('') +
+            '</div>';
+        }
+
         // Try different field names for the body content
         var bodyField = post.fields.blogContent || post.fields.content || post.fields.body;
 
@@ -160,6 +340,7 @@
             '<header class="rl-blog-post-header">' +
                 '<h1 class="rl-blog-post-title">' + escapeHtml(title) + '</h1>' +
                 '<time class="rl-blog-post-date">' + date + '</time>' +
+                tagsHtml +
             '</header>' +
             '<div class="rl-blog-post-body">' + bodyContent + '</div>';
     }
@@ -187,7 +368,7 @@
             '&content_type=' + config.contentType +
             '&order=-fields.blogDate,-sys.createdAt';
 
-        fetch(url)
+        return fetch(url)
             .then(function(response) {
                 if (!response.ok) {
                     throw new Error('Failed to fetch posts: ' + response.status);
@@ -196,38 +377,47 @@
             })
             .then(function(data) {
                 posts = data.items || [];
-                renderSidebar();
-
-                if (posts.length > 0) {
-                    renderPost(posts[0]);
-                } else {
-                    document.getElementById('blog-content').innerHTML =
-                        '<div class="rl-blog-empty">No blog posts yet. Check back soon!</div>';
+                // Build lookup map for linked entries (tags, etc.)
+                if (data.includes && data.includes.Entry) {
+                    data.includes.Entry.forEach(function(entry) {
+                        includes[entry.sys.id] = entry;
+                    });
                 }
-            })
-            .catch(function(error) {
-                console.error('Error fetching blog posts:', error);
-                document.getElementById('blog-nav-list').innerHTML =
-                    '<li class="rl-blog-nav-error">Failed to load posts.</li>';
-                document.getElementById('blog-content').innerHTML =
-                    '<div class="rl-blog-error">Unable to load blog posts. Please try again later.</div>';
             });
     }
 
     function init() {
-        // Load config then fetch posts
+        // Load config then fetch tags and posts in parallel
         fetch('data/contentful-config.json')
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
                 config = data;
-                fetchPosts();
+                return Promise.all([fetchTags(), fetchPosts()]);
+            })
+            .then(function() {
+                renderFilters();
+                updateFilterCount();
+                renderSidebar();
+                if (posts.length > 0) {
+                    renderPost(posts[0]);
+                } else {
+                    document.getElementById('blog-content').innerHTML =
+                        '<div class="rl-blog-empty">No blog posts yet. Check back soon!</div>';
+                }
+
+                // Modal event listeners
+                document.getElementById('blog-filter-btn').addEventListener('click', openFilterModal);
+                document.getElementById('blog-modal-close').addEventListener('click', closeFilterModal);
+                document.getElementById('blog-filter-modal').addEventListener('click', function(e) {
+                    if (e.target === this) closeFilterModal();
+                });
             })
             .catch(function(error) {
-                console.error('Error loading config:', error);
+                console.error('Error loading blog:', error);
                 document.getElementById('blog-content').innerHTML =
-                    '<div class="rl-blog-error">Configuration error. Please check setup.</div>';
+                    '<div class="rl-blog-error">Unable to load blog. Please try again later.</div>';
             });
     }
 

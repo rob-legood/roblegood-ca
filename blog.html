@@ -30,6 +30,10 @@
         <div class="rl-blog-layout">
             <aside class="rl-blog-sidebar">
                 <h2>Posts</h2>
+                <button class="rl-blog-filter-btn" id="blog-filter-btn">
+                    <span>Filter</span>
+                    <span class="rl-blog-filter-count" id="blog-filter-count"></span>
+                </button>
                 <ul class="rl-blog-nav-list" id="blog-nav-list">
                     <li class="rl-blog-nav-loading">Loading posts...</li>
                 </ul>
@@ -43,6 +47,17 @@
     <footer>
         &copy; 1972-2026 Rob LeGood. Hosted on Cloudflare Pages.
     </footer>
+
+    <!-- Filter Modal -->
+    <div class="rl-blog-modal-overlay" id="blog-filter-modal">
+        <div class="rl-blog-modal">
+            <div class="rl-blog-modal-header">
+                <h3>Filter Posts</h3>
+                <button class="rl-blog-modal-close" id="blog-modal-close">&times;</button>
+            </div>
+            <div class="rl-blog-modal-body" id="blog-filters"></div>
+        </div>
+    </div>
 
     <script src="scripts/mobile-nav.js"></script>
     <script src="scripts/blog.js"></script>
