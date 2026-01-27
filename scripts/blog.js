@@ -146,13 +146,14 @@
     function updateFilterCount() {
         var count = selectedTags.length + (searchQuery ? 1 : 0);
         var countEl = document.getElementById('blog-filter-count');
+        var clearBtn = document.getElementById('blog-clear-btn');
         countEl.textContent = count > 0 ? count : '';
         countEl.style.display = count > 0 ? 'inline-flex' : 'none';
+        clearBtn.style.display = count > 0 ? 'flex' : 'none';
     }
 
     function renderFilters() {
         var filtersEl = document.getElementById('blog-filters');
-        var hasActiveFilters = searchQuery || selectedTags.length > 0;
 
         var html = '<input type="text" class="rl-blog-search" id="blog-search" placeholder="Search posts..." value="' + escapeHtml(searchQuery) + '">';
 
@@ -164,10 +165,6 @@
                     escapeHtml(tag.name) + '</button>';
             }).join('');
             html += '</div>';
-        }
-
-        if (hasActiveFilters) {
-            html += '<button class="rl-blog-clear-filters" id="blog-clear-filters">Clear Filters</button>';
         }
 
         filtersEl.innerHTML = html;
@@ -233,15 +230,6 @@
                 applyFilters();
             });
         });
-
-        var clearBtn = document.getElementById('blog-clear-filters');
-        if (clearBtn) {
-            clearBtn.addEventListener('click', function() {
-                searchQuery = '';
-                selectedTags = [];
-                applyFilters();
-            });
-        }
     }
 
     function applyFilters() {
@@ -412,6 +400,13 @@
                 document.getElementById('blog-modal-close').addEventListener('click', closeFilterModal);
                 document.getElementById('blog-filter-modal').addEventListener('click', function(e) {
                     if (e.target === this) closeFilterModal();
+                });
+
+                // Clear filters button (outside modal)
+                document.getElementById('blog-clear-btn').addEventListener('click', function() {
+                    searchQuery = '';
+                    selectedTags = [];
+                    applyFilters();
                 });
             })
             .catch(function(error) {

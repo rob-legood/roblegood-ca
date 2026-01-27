@@ -16,53 +16,98 @@
     overflow-y: auto;
 }
 
+.rl-blog-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+}
+
 .rl-blog-sidebar h2 {
     font-size: 1.1rem;
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
     border-left: none;
     padding-left: 0;
 }
 
-/* Filter Button */
+/* Filter Controls */
+.rl-blog-filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .rl-blog-filter-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 10px 16px;
-    margin-bottom: 20px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 0;
     background: var(--bg-secondary);
     border: 1px solid var(--bg-primary);
     border-radius: 6px;
-    color: var(--text-primary);
-    font-size: 0.9rem;
+    color: var(--text-secondary);
     cursor: pointer;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
 .rl-blog-filter-btn:hover {
     border-color: var(--accent);
     background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.rl-blog-filter-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 .rl-blog-filter-count {
     display: none;
+    position: absolute;
+    top: -6px;
+    right: -6px;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
     background: var(--accent);
     color: var(--bg-tertiary);
-    border-radius: 10px;
-    font-size: 0.75rem;
+    border-radius: 9px;
+    font-size: 0.7rem;
     font-weight: 600;
+}
+
+.rl-blog-clear-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.rl-blog-clear-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* Filter Modal */
@@ -181,23 +226,6 @@
 .rl-blog-filter-tag.active {
     background: var(--accent);
     color: var(--bg-tertiary);
-}
-
-.rl-blog-clear-filters {
-    width: 100%;
-    padding: 8px;
-    background: transparent;
-    border: 1px solid var(--text-secondary);
-    border-radius: 6px;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-}
-
-.rl-blog-clear-filters:hover {
-    border-color: var(--accent);
-    color: var(--accent);
 }
 
 .rl-blog-nav-list {
@@ -378,12 +406,10 @@
 
     .rl-blog-sidebar h2 {
         font-size: 1rem;
-        margin-bottom: 15px;
     }
 
-    .rl-blog-filter-btn {
+    .rl-blog-sidebar-header {
         margin-bottom: 15px;
-        padding: 8px 12px;
     }
 
     .rl-blog-nav-list {

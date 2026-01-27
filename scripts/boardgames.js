@@ -21,7 +21,8 @@
         .then(response => response.json())
         .then(games => {
             const container = document.getElementById('game-list');
-            container.innerHTML = games.map(renderGameCard).join('');
+            const sortedGames = games.sort((a, b) => a.rank - b.rank);
+            container.innerHTML = sortedGames.map(renderGameCard).join('');
         })
         .catch(error => {
             console.error('Failed to load boardgames:', error);

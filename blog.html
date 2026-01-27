@@ -29,11 +29,18 @@
     <main>
         <div class="rl-blog-layout">
             <aside class="rl-blog-sidebar">
-                <h2>Posts</h2>
-                <button class="rl-blog-filter-btn" id="blog-filter-btn">
-                    <span>Filter</span>
-                    <span class="rl-blog-filter-count" id="blog-filter-count"></span>
-                </button>
+                <div class="rl-blog-sidebar-header">
+                    <h2>Posts</h2>
+                    <div class="rl-blog-filter-controls">
+                        <button class="rl-blog-clear-btn" id="blog-clear-btn" title="Clear filters">&times;</button>
+                        <button class="rl-blog-filter-btn" id="blog-filter-btn" title="Filter posts">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            <span class="rl-blog-filter-count" id="blog-filter-count"></span>
+                        </button>
+                    </div>
+                </div>
                 <ul class="rl-blog-nav-list" id="blog-nav-list">
                     <li class="rl-blog-nav-loading">Loading posts...</li>
                 </ul>
