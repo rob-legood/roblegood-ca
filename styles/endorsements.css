@@ -1,0 +1,118 @@
+/* Endorsements Page */
+
+.rl-endorsements-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 40px 60px;
+}
+
+.rl-endorsements-container h1 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.rl-endorsements-intro {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.rl-endorsements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.rl-endorsements-loading,
+.rl-endorsements-empty,
+.rl-endorsements-error {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.rl-endorsement-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 28px 28px 28px 32px;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rl-endorsement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rl-endorsement-quote {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+    font-style: italic;
+}
+
+.rl-endorsement-quote::before {
+    content: "\201C";
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-right: 2px;
+}
+
+.rl-endorsement-quote::after {
+    content: "\201D";
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-left: 2px;
+}
+
+.rl-endorsement-attribution {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rl-endorsement-name {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.rl-endorsement-role {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .rl-endorsements-container {
+        padding: 80px 20px 40px;
+    }
+
+    .rl-endorsements-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .rl-endorsements-intro {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .rl-endorsement-card {
+        padding: 22px 22px 22px 26px;
+    }
+
+    .rl-endorsement-quote {
+        font-size: 0.95rem;
+    }
+
+    .rl-endorsement-name {
+        font-size: 0.95rem;
+    }
+
+    .rl-endorsement-role {
+        font-size: 0.85rem;
+    }
+}

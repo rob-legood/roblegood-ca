@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Jane Mitchell",
+        "role": "Engineering Manager",
+        "company": "Acme Corp",
+        "quote": "Rob is one of the most thoughtful engineers I've worked with. He has a rare ability to break down complex problems into simple, elegant solutions while always keeping the end user in mind."
+    },
+    {
+        "name": "Carlos Rivera",
+        "role": "Senior Developer",
+        "company": "TechStart Inc.",
+        "quote": "Working alongside Rob was a genuine pleasure. His collaborative approach and deep technical knowledge elevated the entire team. He consistently delivered high-quality work and was always willing to mentor others."
+    },
+    {
+        "name": "Priya Sharma",
+        "role": "Product Director",
+        "company": "Cascade Solutions",
+        "quote": "Rob has an exceptional talent for bridging the gap between technical and business requirements. He asks the right questions, communicates clearly, and delivers results that exceed expectations."
+    },
+    {
+        "name": "David Chen",
+        "role": "CTO",
+        "company": "NovaBuild",
+        "quote": "I've had the privilege of watching Rob grow into an outstanding engineer. His curiosity, work ethic, and positive attitude make him a standout on any team. I would not hesitate to work with him again."
+    }
+]
