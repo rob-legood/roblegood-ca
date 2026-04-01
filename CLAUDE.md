@@ -9,10 +9,10 @@ This is a personal portfolio website for Rob LeGood, hosted on Cloudflare Pages.
 ## Architecture
 
 - **Static site**: Pure HTML/CSS with no build process or dependencies
-- **Pages**: `index.html` (home/landing page), `about.html` (career timeline), `boardgames.html`, `blog.html`
+- **Pages**: `index.html` (home/landing page), `about.html` (career timeline), `boardgames.html`, `blog.html`, `sandbox.html` (AI-assisted projects)
 - **Styling**: `styles/` folder contains modular CSS files
 - **Scripts**: `scripts/` folder contains JavaScript files, each with a single purpose
-  - `mobile-nav.js`: Handles hamburger menu toggle for mobile viewports
+  - `nav.js`: Injects the shared nav HTML, sets the active link based on current page, and handles hamburger menu toggle for mobile viewports. **This is the single source of truth for nav links** — edit only this file to add/remove/reorder nav items.
   - `weather.js`: Fetches and displays current weather from Open-Meteo API
   - `random-title.js`: Displays random job titles in the navbar
   - `timeline.js`: Handles career timeline animations and navigation
@@ -54,6 +54,7 @@ styles/
   about.css       - Timeline components, contact section
   boardgames.css  - Game card layouts
   blog.css        - Blog layout, sidebar, post styling
+  sandbox.css     - Sandbox project card layouts
   geocities.css   - Easter egg 90s mode styling
 ```
 
@@ -65,27 +66,17 @@ styles/
 - Use IIFEs to avoid polluting the global namespace
 - Use "rl-" prefix when referencing CSS classes in JavaScript
 
-### Mobile Navigation
+### Navigation
 
-New pages must include the hamburger button markup in the nav and the mobile-nav.js script:
+The nav is rendered by `scripts/nav.js` — **do not hardcode nav HTML in pages**. New pages need only an empty `<nav></nav>` placeholder and the `nav.js` script tag.
 
 ```html
-<nav>
-    <div class="rl-nav-brand">
-        <a href="index.html" class="rl-nav-logo">Rob LeGood</a><span class="rl-nav-title"></span>
-    </div>
-    <button class="rl-nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="rl-nav-hamburger-line"></span>
-        <span class="rl-nav-hamburger-line"></span>
-        <span class="rl-nav-hamburger-line"></span>
-    </button>
-    <div class="rl-nav-links">
-        <!-- nav links here -->
-    </div>
-</nav>
+<nav></nav>
 ```
 
-Include the mobile-nav.js script before other page scripts:
+Include `nav.js` as the first script before other page scripts:
 ```html
-<script src="scripts/mobile-nav.js"></script>
+<script src="scripts/nav.js"></script>
 ```
+
+To add, remove, or reorder nav links, edit the `NAV_HTML` string in `scripts/nav.js`. The active link is set automatically based on the current page filename. `nav.js` also handles the hamburger menu for mobile viewports.
