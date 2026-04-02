@@ -24,11 +24,14 @@
 
     nav.innerHTML = NAV_HTML;
 
-    // Mark the current page's link as active
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Mark the current page's link as active.
+    // Strip .html to handle both clean URLs (Cloudflare Pages) and direct file access.
+    var rawPage = window.location.pathname.split('/').pop() || 'index.html';
+    var currentPage = rawPage.replace(/\.html$/, '') || 'index';
     var links = nav.querySelectorAll('.rl-nav-links a');
     for (var i = 0; i < links.length; i++) {
-        if (links[i].getAttribute('href') === currentPage) {
+        var href = links[i].getAttribute('href').replace(/\.html$/, '');
+        if (href === currentPage) {
             links[i].classList.add('active');
             break;
         }
