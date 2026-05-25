@@ -9,7 +9,7 @@ This is a personal portfolio website for Rob LeGood, hosted on Cloudflare Pages.
 ## Architecture
 
 - **Static site**: Pure HTML/CSS with no build process or dependencies
-- **Pages**: `index.html` (home/landing page), `about.html` (career timeline), `boardgames.html`, `blog.html`, `sandbox.html` (AI-assisted projects)
+- **Pages**: `index.html` (home/landing page), `about.html` (career timeline), `boardgames.html`, `blog.html`, `sandbox.html` (AI-assisted projects), `endorsements.html` (colleague testimonials), `recommendations.html` (curated recommendations), `secret-profile.html` (hidden 90s GeoCities easter egg, not in nav)
 - **Styling**: `styles/` folder contains modular CSS files
 - **Scripts**: `scripts/` folder contains JavaScript files, each with a single purpose
   - `nav.js`: Injects the shared nav HTML, sets the active link based on current page, and handles hamburger menu toggle for mobile viewports. **This is the single source of truth for nav links** — edit only this file to add/remove/reorder nav items.
@@ -19,6 +19,11 @@ This is a personal portfolio website for Rob LeGood, hosted on Cloudflare Pages.
   - `blog.js`: Fetches and renders blog posts from Contentful
   - `boardgames.js`: Renders boardgame cards from JSON data
   - `geocities.js`: Easter egg that toggles 90s nostalgia mode
+  - `endorsements.js`: Fetches and renders colleague endorsements/testimonials from Contentful
+  - `recommendations.js`: Fetches and renders curated recommendations from Contentful
+  - `highlights.js`: Fetches and renders highlights section on the home page from Contentful
+  - `mobile-nav.js`: Handles hamburger menu toggle for mobile viewports (extracted from nav.js)
+  - `sparkle-trail.js`: Mouse sparkle particle trail animation used on `secret-profile.html`
 - **Hosting**: Cloudflare Pages (deploy by pushing to main branch)
 
 ## Development
@@ -55,7 +60,10 @@ styles/
   boardgames.css  - Game card layouts
   blog.css        - Blog layout, sidebar, post styling
   sandbox.css     - Sandbox project card layouts
-  geocities.css   - Easter egg 90s mode styling
+  geocities.css         - Easter egg 90s mode styling
+  endorsements.css      - Endorsements page layout and card styling
+  recommendations.css   - Recommendations page layout and card styling
+  secret-profile.css    - Hidden 90s GeoCities easter egg page styling
 ```
 
 ## JavaScript Guidelines

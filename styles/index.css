@@ -61,8 +61,8 @@
 }
 
 .rl-hero-headshot {
-    width: 280px;
-    height: 280px;
+    width: 420px;
+    height: 420px;
     object-fit: cover;
     border-radius: 12px;
     border: 3px solid var(--accent);
@@ -220,8 +220,8 @@
     }
 
     .rl-hero-headshot {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 
     .rl-hero-content {
