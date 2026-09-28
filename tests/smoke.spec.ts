@@ -84,7 +84,7 @@ test.describe('About Page Elements', () => {
   test('timeline navigation is visible', async ({ page }) => {
     await page.goto('/about.html');
     await expect(page.locator('.rl-timeline-nav')).toBeVisible();
-    await expect(page.locator('.rl-timeline-marker')).toHaveCount(4);
+    await expect(page.locator('.rl-timeline-marker')).toHaveCount(5);
   });
 
   test('timeline sections exist', async ({ page }) => {
@@ -93,6 +93,7 @@ test.describe('About Page Elements', () => {
     await expect(page.locator('#junior-years')).toBeAttached();
     await expect(page.locator('#ic-to-manager')).toBeAttached();
     await expect(page.locator('#director-years')).toBeAttached();
+    await expect(page.locator('#accidental-sabbatical')).toBeAttached();
   });
 
   test('contact section has LinkedIn link', async ({ page }) => {
