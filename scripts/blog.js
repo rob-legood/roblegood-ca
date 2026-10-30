@@ -171,6 +171,31 @@
         attachFilterListeners();
     }
 
+    // Each post's address is blog.html?post=<slug>. The slug comes from the title, so renaming
+    // a post changes its link; an unknown slug just opens the newest post.
+    // embuildor.ca links to posts the same way: keep postSlug() in src/lib/blog.ts in step with this.
+    function getPostSlug(post) {
+        return (post.fields.title || '')
+            .normalize('NFKD')
+            .toLowerCase()
+            .replace(/[\u0300-\u036f'\u2019]/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function getLinkedPostIndex() {
+        var slug = new URLSearchParams(window.location.search).get('post');
+        if (!slug) {
+            return 0;
+        }
+        var slugs = posts.map(getPostSlug);
+        return Math.max(slugs.indexOf(slug), 0);
+    }
+
+    function updatePostUrl(post) {
+        history.replaceState(null, '', window.location.pathname + '?post=' + getPostSlug(post));
+    }
+
     function getFilteredPosts() {
         return posts.filter(function(post) {
             // Search filter
@@ -240,6 +265,7 @@
         if (filtered.length > 0) {
             currentPostIndex = posts.indexOf(filtered[0]);
             renderPost(filtered[0]);
+            updatePostUrl(filtered[0]);
         } else {
             document.getElementById('blog-content').innerHTML =
                 '<div class="rl-blog-empty">No posts match your filters.</div>';
@@ -348,6 +374,7 @@
 
         // Render the selected post
         renderPost(posts[index]);
+        updatePostUrl(posts[index]);
     }
 
     function fetchPosts() {
@@ -387,9 +414,10 @@
             .then(function() {
                 renderFilters();
                 updateFilterCount();
+                currentPostIndex = getLinkedPostIndex();
                 renderSidebar();
                 if (posts.length > 0) {
-                    renderPost(posts[0]);
+                    renderPost(posts[currentPostIndex]);
                 } else {
                     document.getElementById('blog-content').innerHTML =
                         '<div class="rl-blog-empty">No blog posts yet. Check back soon!</div>';

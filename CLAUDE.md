@@ -16,7 +16,7 @@ This is a personal portfolio website for Rob LeGood, hosted on Cloudflare Pages.
   - `weather.js`: Fetches and displays current weather from Open-Meteo API
   - `random-title.js`: Displays random job titles in the navbar
   - `timeline.js`: Handles career timeline animations and navigation
-  - `blog.js`: Fetches and renders blog posts from Contentful
+  - `blog.js`: Fetches and renders blog posts from Contentful; each post has its own address, `blog.html?post=<slug>` (slug made from the title)
   - `boardgames.js`: Renders boardgame cards from JSON data
   - `geocities.js`: Easter egg that toggles 90s nostalgia mode
   - `endorsements.js`: Fetches and renders colleague endorsements/testimonials from Contentful

@@ -191,3 +191,22 @@ test.describe('Footer Tests', () => {
     }
   });
 });
+
+test.describe('Blog Post Links', () => {
+  test('choosing a post gives it its own address', async ({ page }) => {
+    await page.goto('/blog.html');
+    await page.locator('.rl-blog-nav-item').nth(1).click();
+    await expect(page).toHaveURL(/\?post=[a-z0-9-]+$/);
+    const title = await page.locator('.rl-blog-post-title').textContent();
+
+    await page.reload();
+    await expect(page.locator('.rl-blog-post-title')).toHaveText(title!);
+    await expect(page.locator('.rl-blog-nav-item').nth(1)).toHaveClass(/active/);
+  });
+
+  test('an unknown post opens the newest one', async ({ page }) => {
+    await page.goto('/blog.html?post=no-such-post');
+    await expect(page.locator('.rl-blog-nav-item').first()).toHaveClass(/active/);
+    await expect(page.locator('.rl-blog-post-title')).toHaveText((await page.locator('.rl-blog-nav-item').first().textContent())!);
+  });
+});
